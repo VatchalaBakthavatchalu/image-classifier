@@ -4,7 +4,7 @@ Server that runs a REST API which reads a publicly hosted image, and returns a c
 
 ## Installation
 
-make sure you have the necessary dependencies, listed within '''setup.py'''
+make sure you have the necessary dependencies, listed within ```setup.py```
 
 ## Usage
 
