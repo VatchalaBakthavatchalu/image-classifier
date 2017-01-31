@@ -10,7 +10,10 @@ make sure you have the necessary dependencies, listed within ```setup.py```
 
 start server: ```python classifier-server.py```
 
-curl the server, specifying the URL of the publicly hosted image within the data payload.
+curl the server, specifying the URL of the publicly hosted image within the data payload. 
 
-example curl:
-```curl http://localhost:5000/img1 -d "data=https://3.bp.blogspot.com/-zBcdpq0NcLc/VrfAuIm_AzI/AAAAAAAAtCg/rymMidJo2-Y/s1600/individualImage.png" -X PUT```
+Imagenet example curl:
+```curl http://localhost:5000/classify/imagenet/img2 -d "data=https://3.bp.blogspot.com/-zBcdpq0NcLc/VrfAuIm_AzI/AAAAAAAAtCg/rymMidJo2-Y/s1600/individualImage.png" -X PUT```
+
+MNIST example curl:
+curl http://localhost:5000/classify/mnist/img2 -d "data=mnistimg.png" -X PUT
