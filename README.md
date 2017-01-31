@@ -16,4 +16,4 @@ Imagenet example curl:
 ```curl http://localhost:5000/classify/imagenet/img2 -d "data=https://3.bp.blogspot.com/-zBcdpq0NcLc/VrfAuIm_AzI/AAAAAAAAtCg/rymMidJo2-Y/s1600/individualImage.png" -X PUT```
 
 MNIST example curl:
-curl http://localhost:5000/classify/mnist/img2 -d "data=mnistimg.png" -X PUT
+```curl http://localhost:5000/classify/mnist/img2 -d "data=mnistimg.png" -X PUT```

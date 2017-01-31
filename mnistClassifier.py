@@ -49,8 +49,6 @@ class MNIST_classifier():
 	def predict_class(self, img_path):
 		img = image.load_img(img_path, target_size=(self.img_rows,self.img_cols))
 		img_arr = image.img_to_array(img)
-		# print("array shape: " + str(img_arr.shape))
-		# preprocess_img = img_arr.reshape(self.img_rows, self.img_cols, 1).astype('float32')
 		img_arr /= 255
 		processed_img = np.expand_dims(img_arr, axis=0)
 		processed_img = np.swapaxes(processed_img, 0, 3)
