@@ -47,11 +47,22 @@ class MNIST_classifier():
 		self.model.load_weights("mnist-cnn-keras-model.hdf5", by_name=False)
 
 	def predict_class(self, img_path):
-		img = image.load_img(img_path, target_size=(self.img_rows,self.img_cols))
-		img_arr = image.img_to_array(img)
+		# img = image.load_img(img_path, target_size=(self.img_rows,self.img_cols))
+		# img_arr = image.img_to_array(img)
+		img_arr = download_image(img_path)
 		img_arr /= 255
 		processed_img = np.expand_dims(img_arr, axis=0)
 		processed_img = np.swapaxes(processed_img, 0, 3)
 		preds = self.model.predict_classes([processed_img])
 		return str(preds[0])
+
+	def download_image(self, data):
+		r = requests.get(data, stream=True)
+		if r.status_code == 200:
+		    with open("./current_img.jpg", 'wb') as f:
+		        r.raw.decode_content = True
+		        shutil.copyfileobj(r.raw, f)
+		        img = image.load_img(f.name, target_size=(224,224))
+		        img_arr = image.img_to_array(img)
+		        return img_arr
 
